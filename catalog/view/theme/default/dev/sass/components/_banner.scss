@@ -1,0 +1,66 @@
+// Banners & slideshows -->
+.banner,
+.slideshow {
+    $banner: &;
+    margin-bottom: 1rem;
+
+    &__wrapper {
+
+        .swiper-pagination {
+            bottom: 1rem;
+            z-index: 2;
+        }
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            &::after {
+                font-size: 1rem;
+            }
+        }
+    }
+
+    &__item {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+    }
+
+    &:hover {
+
+        .swiper-button-prev,
+        .swiper-button-next {
+            background-color: #ffffffad;
+        }
+    }
+
+    @include media("<tablet") {
+        margin-bottom: 0;
+    }
+}
+// homepage top slider -->
+.banner--0 {
+    .banner__item {
+        min-width: 100%;
+
+        a {
+            display: flex;
+            min-width: 100%;
+        }
+    }
+
+    @include media("<=tablet") {
+        margin-bottom: 1rem;
+    }
+}
+// manufacturers homepage slider -->
+.slideshow--0 {
+    margin: 1rem 0;
+
+    .swiper-controls {
+      display: none;
+    }
+}

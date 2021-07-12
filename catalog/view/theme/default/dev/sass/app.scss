@@ -1,0 +1,68 @@
+// Global stylesheet --->
+@import "base/global";
+
+// Layouts --->
+@import "layout/header";
+@import "layout/page";
+@import "layout/footer";
+
+// Components -->
+@import "components/common";
+@import "components/card";
+
+
+h1 {
+    color: $primary;
+    margin: var(--gap) 0;
+    text-align: center;
+
+    span {
+        color: $text;
+        font-size: 1.2rem;
+    }
+}
+
+h2 {
+    font-size: 20px;
+    color: $text;
+
+    & + h3 {
+        margin: .5rem 0;
+    }
+}
+
+h3 {
+    font-weight: 500;
+}
+
+a {
+    color: $primary;
+}
+
+h3,
+p,
+ul,
+ol,
+li,
+a {
+    font-size: 18px;
+}
+
+ul,ol {
+    padding-left: 1.2rem;
+    margin-bottom: 1rem;
+
+    li {
+        line-height: 1.4;
+        margin-bottom: .5rem;
+    }
+}
+
+code {
+    font-size: 18px;
+    color: $primary;
+}
+
+main {
+    margin-bottom: var(--gap);
+}

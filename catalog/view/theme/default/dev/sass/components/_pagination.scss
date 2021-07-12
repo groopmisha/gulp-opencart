@@ -1,0 +1,81 @@
+// Pagination old -->
+.pagination {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    
+    .links {
+        display: flex;
+        margin: 2rem -2px;
+
+        a, b {
+            display: inline-block;
+            padding: 6px 10px;
+            margin: 0 2px;
+            text-decoration: none;
+            color: $white;
+            background: #B6A7A4;
+        }
+
+        a {
+            :hover {
+                color: $white;
+                background: $primary;
+            }
+        }
+
+        b {
+            background: $primary;
+        }
+
+        & + .results {
+            visibility: visible;
+        }
+    }
+
+    .results {
+        visibility: hidden;
+        margin: 1rem 0;
+        float: right;
+    }
+
+
+    @include media("<=470px") {
+        justify-content: center;
+    }
+
+    @include media("<=440px") {
+
+        .links {
+
+            a,b {
+                padding: 8px;
+            }
+        }
+    }
+
+    @include media("<=400px") {
+
+        .links {
+            justify-content: space-between;
+            min-width: 100%;
+
+            a,b {
+                padding: 6px;
+            }
+        }
+    }
+
+    @include media("<=340px") {
+
+        .links {
+            margin: 1rem -8px;
+
+            a,b {
+                padding: 5px;
+            }
+        }
+    }
+}

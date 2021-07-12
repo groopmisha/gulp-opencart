@@ -1,0 +1,192 @@
+// Site popup (add account)-->
+.popup {
+    $parent: &;
+    display: flex;
+    position: absolute;
+    top: 10px;
+    left: -9999px;
+    z-index: 999;
+    opacity: 0;
+    transition: transform 0.4s, opacity .4s;
+
+    svg {
+        transform: rotateY(180deg);
+        cursor: pointer;
+
+        .loading {
+            stroke-dasharray: 0 540;
+            stroke-dashoffset: -540;
+            stroke-width: 1px;
+            stroke: #858585;
+            border-radius: 100%;
+        }
+    }
+
+    &.active-loading {
+        
+        .loading {
+            stroke-width: 2px;
+            stroke-dashoffset: 0;
+            stroke-dasharray: 540;
+            border-radius: 100%;
+            transition: stroke-dasharray 30s;
+            -webkit-transition: stroke-dasharray 30s;
+            -moz-transition: stroke-dasharray 30s;
+            -ms-transition: stroke-dasharray 30s;
+            -o-transition: stroke-dasharray 30s;
+        }
+    }
+
+    &--custom {
+        left: 50%;
+        top: 50%;
+        position: fixed;
+        opacity: 1;
+        transform: translateX(-50%) translateY(-50%);
+        zoom: 1.001;
+
+        #{$parent}__wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: $white;
+            box-shadow: -1px 6px 21px 0 rgba(0,0,0,.31);
+            width: 100%;
+            padding: 0;
+            border-radius: 2px;
+            min-height: 100%;
+            max-width: 410px;
+        }
+
+        #{$parent}__heading {
+            background: $white;
+            padding: 0;
+            padding: 1.375rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            min-width: 100%;
+    
+            &-title {
+                display: flex;
+                align-items: center;
+                position: relative;
+                color:$text;
+                font-size: 1.1rem;
+                font-weight: 500;
+                line-height: 1.5rem;
+                margin-bottom: 0;
+                padding: 0;
+                min-width: calc(100% - 40px);
+                text-align: center;
+                justify-content: center;
+            }
+
+            &-close {
+                cursor: pointer;
+
+                svg {
+                    width: 30px;
+
+                    .loading {
+                        fill: transparent;
+                        stroke: $white;
+                    }
+
+                    path:nth-of-type(2) {
+                        fill: $white;
+                        stroke: $white;
+                    }
+                }
+            }
+        }
+
+        #{$parent}__content {
+            display: flex;
+            padding: 0;
+            min-width: 100%;
+            padding: 0 1rem;
+        }
+
+        #{$parent}__bottom {
+            display: flex;
+            padding: 1.375rem 1rem;
+            padding-top: .5rem;
+            min-width: 100%;
+            justify-content: center;
+
+            &-btn {
+                padding: 12px 30px;
+            }
+        }
+
+        
+        @include media("<440px") {
+            min-width: calc(100% - 2rem);
+        }
+
+        @include media("<330px") {
+            min-width: calc(100% - 1rem);
+
+            #{$parent}__content {
+                padding: 0;
+            }
+        }
+    }
+
+    &--account {
+        left: 50%;
+        top: 10px;
+        opacity: 1;
+        transform: translateX(-50%);
+        zoom: 1.001;
+        min-width: 410px;
+        z-index: 98;
+
+        #{$parent}__wrap {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: $white;
+            box-shadow: 0px 1px 13px 0 rgba(0, 0, 0, 0.31);
+            width: 100%;
+            padding: 0;
+            border-radius: 2px;
+            min-height: 100%;
+            max-width: 410px;
+        }
+
+        #{$parent}__content {
+            display: flex;
+            padding: 0;
+            min-width: 100%;
+            padding: 0 .5rem;
+        }
+
+        #{$parent}__bottom {
+            display: flex;
+            padding: 1.375rem 1rem;
+            padding-top: .5rem;
+            min-width: 100%;
+            justify-content: center;
+
+            &-btn {
+                padding: 12px 30px;
+            }
+        }
+
+        @include media("<440px") {
+            min-width: calc(100% - 2rem);
+        }
+
+        @include media("<330px") {
+            min-width: calc(100% - 1rem);
+
+            #{$parent}__content {
+                padding: 0;
+            }
+        }
+    }
+}

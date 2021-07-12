@@ -1,0 +1,127 @@
+.form {
+    $form: &;
+    display: flex;
+    flex-direction: column;
+
+    &__heading {
+        text-align: left;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    &__item {
+        display: flex;
+        justify-content: space-between;
+
+        .icon {
+            min-width: 40px;
+            justify-content: center;
+            align-items: center;
+
+            &::before {
+                margin-right: 0;
+            }
+        }
+    }
+
+    &__submit {
+        height: 40px;
+        align-items: center;
+        padding-top: 0;
+        padding-bottom: 0;
+        border-radius: 3px;
+    }
+
+    &--promocode {
+        margin-top: auto;
+
+        #{$form}__heading {
+            color:  $grey_text;
+            font-size: 1.2rem;
+        }
+
+        #{$form}__item {
+
+            &-input {
+                margin-right: 1rem;
+
+                @include media("<=400px") {
+                    padding-left: .5rem;
+                }
+            }
+
+            input[type=submit] {
+                font-size: 14px;
+            }
+        }
+    }
+}
+
+// Password validation tooltips (register form, ) --->
+.with-validation {
+    position: relative;
+
+    &__block {
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        padding: 0 1rem;
+        width: 100%;
+        background: $white;
+        display: none;
+        z-index: 2;
+    }
+
+    &__wrap {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__item {
+        margin: 0;
+        display: flex;
+        align-items: center;
+        list-style: none;
+        position: relative;
+        padding: .3rem;
+        font-size: 13px;
+        padding-left: 1.3rem;
+        margin: 0 .2rem;
+
+        &::before {
+            height: .8rem;
+            padding: 0;
+            position: absolute;
+            left: .3rem;
+            width: .8rem;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: .8rem;
+        }
+
+        &--error {
+            color: $error;
+
+            &::before {
+                content: "";
+                background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.4687 1.75907C15.2519 1.75907 19.1784 5.63306 19.1784 10.4687C19.1784 15.2789 15.2829 19.1784 10.4687 19.1784C5.66052 19.1784 1.75907 15.2848 1.75907 10.4687C1.75907 5.66218 5.65431 1.75907 10.4687 1.75907ZM10.4687 0.46875C4.94629 0.46875 0.46875 4.9479 0.46875 10.4687C0.46875 15.9928 4.94629 20.4687 10.4687 20.4687C15.9912 20.4687 20.4687 15.9928 20.4687 10.4687C20.4687 4.9479 15.9912 0.46875 10.4687 0.46875ZM10.0054 5.30746H10.932C11.2071 5.30746 11.4269 5.53657 11.4155 5.81149L11.1332 12.5857C11.1224 12.8449 10.9092 13.0494 10.6498 13.0494H10.2877C10.0283 13.0494 9.81504 12.8448 9.80423 12.5857L9.52198 5.81149C9.51056 5.53657 9.73032 5.30746 10.0054 5.30746ZM10.4687 13.8558C9.8452 13.8558 9.33972 14.3613 9.33972 14.9849C9.33972 15.6084 9.8452 16.1139 10.4687 16.1139C11.0923 16.1139 11.5978 15.6084 11.5978 14.9849C11.5978 14.3613 11.0923 13.8558 10.4687 13.8558Z' fill='%23F50013'/%3E%3C/svg%3E ");
+  
+            }
+        }
+
+        &--valid {
+            color: $success;
+
+            &::before {
+                content: "";
+                background-image: url("data:image/svg+xml,%3Csvg width='21' height='21' viewBox='0 0 21 21' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M10.4687 0.46875C4.94589 0.46875 0.46875 4.94589 0.46875 10.4687C0.46875 15.9916 4.94589 20.4687 10.4687 20.4687C15.9916 20.4687 20.4687 15.9916 20.4687 10.4687C20.4687 4.94589 15.9916 0.46875 10.4687 0.46875ZM10.4687 19.1784C5.68391 19.1784 1.75907 15.3052 1.75907 10.4687C1.75907 5.68395 5.63226 1.75907 10.4687 1.75907C15.2536 1.75907 19.1784 5.63226 19.1784 10.4687C19.1784 15.2535 15.3052 19.1784 10.4687 19.1784ZM16.1796 8.09129L8.90222 15.3103C8.7125 15.4985 8.40613 15.4973 8.21794 15.3076L4.75512 11.8168C4.56694 11.6271 4.56815 11.3207 4.75786 11.1325L5.10141 10.7917C5.29113 10.6035 5.5975 10.6048 5.78569 10.7945L8.56698 13.5982L15.1573 7.06073C15.3471 6.87254 15.6534 6.87375 15.8416 7.06347L16.1824 7.40702C16.3706 7.59673 16.3694 7.9031 16.1796 8.09129V8.09129Z' fill='%234BB543'/%3E%3C/svg%3E ");
+            }
+        }
+    }
+}
+
+
+
+

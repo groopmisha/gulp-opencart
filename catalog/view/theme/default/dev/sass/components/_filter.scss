@@ -1,0 +1,185 @@
+// Filter -->
+.filter {
+    min-width: 100%;
+    align-self: flex-start;
+    display: block;
+
+    &__heading {
+        background: $bg_grey;
+        text-transform: uppercase;
+        font-family: "Oswald";
+        margin: 1rem 0;
+        padding: 1rem;
+
+        a {
+            display: flex;
+            justify-content: center;
+        }
+
+        @include media("<tablet") {
+            margin: 0;
+        }
+    }
+
+    &__toggle {
+        max-height: 16px;
+    }
+
+    &__content {
+        @include media("<tablet") {
+            margin: 1rem 1rem 0px;
+        }
+    }
+
+    .list-group-item {
+        border-bottom: 1px solid $border_color_darker;
+
+        span {
+            display: inline-block;
+            max-width: 155px;
+            overflow-y: hidden;
+        }
+
+        &:first-child {
+            overflow: auto !important;
+
+            &.show {
+                overflow: visible !important;
+            }
+
+            .ocfilter-option {
+                .option-name {
+                    transform: rotate(135deg);
+
+                    &.hided::after {
+                        transform: rotate(45deg);
+                    }
+                }
+
+                .option-values {
+                    display: block;
+                }
+            }
+        }
+
+        &.show {
+            padding: 0;
+
+            .ocfilter-option {
+                .option-name {
+                    transform: rotate(135deg);
+                }
+
+                .option-values {
+                    display: none;
+                    padding: 5px 10px;
+                }
+            }
+        }
+
+        &:not(.show) {
+            padding: 0;
+        }
+
+        &.selected-options {
+            .ocfilter-option {
+                padding: 10px;
+
+                span {
+                    display: flex;
+                    max-width: none;
+                    width: 100%;
+                    font-size: 13px;
+                    padding-bottom: 5px;
+                }
+
+                button {
+                    margin: 0 2px;
+                    background-color: $secondary;
+                    border: 0;
+                    padding: 1px 10px;
+                    cursor: pointer;
+
+                    &:first-child {
+                        margin-left: 0;
+                    }
+
+                    &:last-child {
+                        margin-right: 0;
+                    }
+                }
+
+                & + .ocfilter-option {
+                    padding-top: 0;
+                }
+            }
+
+            & > button {
+                display: flex;
+                justify-content: flex-start;
+                width: 100%;
+                padding: 10px;
+                background-color: transparent;
+                border: 0;
+                color: $primary;
+                cursor: pointer;
+                font-size: 14px;
+            }
+        }
+    }
+
+    .ocfilter-option {
+        label {
+            display: flex;
+            align-items: center;
+            padding: 6px 0;
+
+            small {
+                background-color: #dbeaf9;
+                position: absolute;
+                right: 10px;
+                border-radius: 20px;
+                color: #0e6a93;
+                font-size: 10px;
+                font-weight: 200;
+                margin-left: 5px;
+                padding: 1px 5px;
+            }
+
+            a {
+                color: $secondary;
+                text-decoration: none;
+                line-height: 1;
+            }
+        }
+
+        .option-name {
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 0;
+            padding: 10px;
+            background-color: #eaeaea;
+
+            &::after {
+                position: absolute;
+                right: 10px;
+                display: inline-block;
+                margin-left: 0;
+                vertical-align: top;
+                content: "";
+                width: 10px;
+                height: 10px;
+                transform: rotate(45deg);
+                border-top: 2px solid #858585;
+                border-right: 2px solid #858585;
+                border-bottom: none;
+                border-left: none;
+            }
+        }
+
+        .option-values {
+            display: block;
+            padding: 5px 10px;
+        }
+    }
+}

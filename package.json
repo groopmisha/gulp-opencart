@@ -1,0 +1,27 @@
+{
+  "name": "gulp-opencart",
+  "version": "1.0.0",
+  "description": "<h1>Compile frontend with npm and gulp <br><span>incremental build, which compile only changed files</span></h1>\r <h2>Run gulp</h2>\r <p>* For start working you should have <span>node</span> already installed on your windows. Run <code>node --version</code> to command line for check node version</p>\r <h3>Run <code>npm i</code> in project root directory for install gulp and packages, after that you can easily run compiling with these commands</h3>\r <ol>\r    <li>Run <code>gulp</code> just for single compiling files (css)</li>\r    <li>Run <code>gulp watch</code> for working with files (compile every changes and show live results in browser) <span> You should have any local server (open server, vs code live server, etc</span></li>\r    <li>Run <code>gulp scripts</code> just for single compiling files (scripts)</li>\r    <li>Run <code>gulp assets</code> just for single compiling files (scripts & styles)</li>\r </ol>\r <hr>\r <h2>Setup gulp (clear version)</h2>\r <ol>\r    <li>Open command line and install npm with gulp globally <code>npm install --global gulp-cli</code></li>\r    <li>Open project folder and install gulp <code>npm install --gulp --save-dev</code></li>\r    <li>Open project folder and install packages\r       <code>\r          npm i sass gulp-sass browser-sync gulp-file-include gulp-autoprefixer gulp-group-css-media-queries gulp-rename gulp-clean-css gulp-uglify-es gulp-babel gulp-concat gulp-cached gulp-dependents gulp-debug  --save-dev\r       </code>\r    </li>\r </ol>\r <p>If you have permission-denied error, you should run <code>Set-ExecutionPolicy RemoteSigned</code> in windows powerhell terminal</p>\r <p>If you have other errors, you should run <code>npm cache clean --force</code> and reinstall npm. For delete node modules folder use <code>rm -r node_modules</code></p>",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Misha Lesiuk",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.4",
+    "gulp-autoprefixer": "^8.0.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-cached": "^1.1.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-debug": "^4.0.0",
+    "gulp-dependents": "^1.2.5",
+    "gulp-file-include": "^2.3.0",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-rename": "^2.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-uglify-es": "^2.0.0",
+    "sass": "^1.35.2"
+  }
+}

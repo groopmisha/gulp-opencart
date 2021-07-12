@@ -1,0 +1,143 @@
+// Review form on product && articles comments -->
+.block-review {
+    $review: &;
+
+    &__wrapper {
+        padding: 1rem 0;
+
+        &--no-reviews {
+
+            .text {
+                font-size: 1rem;
+                color: $grey_text;
+            }
+        }
+    }
+
+    &__item {
+        padding: 1rem 0;          
+        border-bottom: 1px solid $border_color;
+
+        .text {
+            font-size: 1rem;
+            line-height: 1.3;
+            letter-spacing: .2px;
+            padding-right: 50px;
+        }
+    }
+
+    &__info {
+
+        &-author {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        &-name {
+            font-size: 1rem;
+            color: $text;
+
+            span {
+                margin-left: 5px;
+                color: $blue;
+            }
+        }
+
+        &-date {
+            display: flex;
+            padding: .5rem 0 0;
+            font-size: 12px;
+            font-weight: 400;
+            color: $grey_text;
+        }
+    }
+
+    &__rating {
+        justify-content: flex-start;
+    }
+
+    &__pagination {
+        margin-bottom: 0;
+        border: none;
+        padding-top: 1rem;
+
+        .links {
+            display: flex;
+
+            b {
+                background: $white;
+                border: 1px solid $orange;
+                color: $orange;
+                margin: 0 2px;
+            }
+
+            a {
+                margin: 0 2px;
+            }
+        }
+
+        .results {
+            display: none;
+        }
+    }
+
+    &__login {
+        font-size: 1rem;
+        color: $text;
+        margin-bottom: 1rem;
+    }
+
+    &--article {
+        flex: 0 0 calc(50% - 1rem);
+        max-width: calc(50% - 1rem);
+        border: 1px solid $border_color;
+        padding: 2rem;
+        border-radius: 3px;
+
+        #{$review}__wrapper {
+            padding: 0;
+        }
+
+        #{$review}__heading {
+            font-size: 28px;
+            font-weight: 500;
+            padding-bottom: 2rem;
+        }
+
+        #{$review}__item {
+
+            &:first-child {
+                padding-top: 0;
+            }
+
+            &:last-child {
+                padding-bottom: 0;
+                border: 0;
+            }
+        }
+
+        #{$review}__info {
+            margin-bottom: .5rem;
+        }
+
+        &-full {
+            flex: 1;
+            max-width: none;
+        }
+
+        @include media("<desktop") {
+            flex: 0 0 100%;
+            max-width: 100%;
+            margin-bottom: 2rem;
+        }
+
+        @include media("<=tablet") {
+            padding: 1rem;
+
+            #{$review}__heading {
+                font-size: 22px;
+                font-weight: 700;
+            }
+        }
+    }
+}

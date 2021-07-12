@@ -1,0 +1,274 @@
+.cards {
+   display: flex;
+   flex-wrap: wrap;
+   min-width: 100%;
+   background-color: blue;
+
+   .card {
+      flex: 1;
+   }
+}
+
+.card {
+   $card:&;
+   position: relative;
+   display: flex;
+   flex-direction: column;
+   min-width: 0;
+   word-wrap: break-word;
+   background-color: white;
+   border-radius: 4px;
+   padding: var(--gap);
+
+   & > hr {
+      margin-right: 0;
+      margin-left: 0
+   }
+
+   &__body {
+      flex: 1 1 auto;
+   }
+
+   &__title {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0;
+      margin-bottom: var(--gap-half);
+      font-size: 21px;
+      line-height: 1.3;
+      font-weight: 500;
+      color: $text;
+      text-transform: none;
+   }
+
+   &__subtitle {
+      min-width: 100%;
+      font-size: 1rem;
+      line-height: 1.5;
+      font-weight: 400;
+      text-transform: none;
+      padding-top: var(--gap-half);
+   }
+
+   &__text {
+      display: flex;
+      color: $grey_heading;
+      line-height: 1.5;
+      margin-bottom: var(--gap-half);
+
+      &:last-child {
+         margin-bottom: 0;
+      }
+
+      .card__img {
+         margin-bottom: 0;
+      }
+   }
+
+   &__list {
+      display: flex;
+      justify-content: flex-end;
+      flex-direction: column;
+      margin-left: var(--gap);
+
+      li {
+         position: relative;
+         padding: 0;
+         padding-left: 14px;
+         list-style: none;
+         margin-bottom: 3px;
+
+         &::before {
+            content: '';
+            display: flex;
+            height: 5.5px;
+            width: 5.5px;
+            min-width: 5.5px;
+            position: absolute;
+            top: 10px;
+            left: 0;
+            border-radius: 50%;
+            background-color: #ff6f14;
+         }
+      }
+   }
+
+   &__link {
+
+      &:hover {
+         text-decoration: none;
+      }
+
+      & + .card__link {
+         margin-left: var(--gap-half);
+      }
+   }
+
+   &__img {
+      width: 100%;
+      border-radius: calc(.25rem - 1px);
+      align-self: center;
+      margin-bottom: var(--gap);
+   
+      &--overlay,
+      &--background {
+         position: absolute;
+         inset: 0;
+      }
+
+      &--background {
+         z-index: 1;
+         margin-bottom: 0;
+         object-fit: cover;
+         object-position: top;
+         height: 100%;
+
+         & + .card__body {
+            position: relative;
+            z-index: 2;
+         }
+      }
+   }
+
+   /* Homepage top-left block */
+   &--store {
+      margin: 0 .5rem;
+
+      #{$card} {
+
+         &__body {
+            padding-right: 160px;
+         }
+
+         &__subtitle {
+            max-width: 390px;
+            display: inline-block;
+            min-width: unset;
+         }
+
+         @include media("<=1280px") {
+
+            &__body {
+               padding-right: 85px;
+            }
+         }
+
+         @include media("<=992px") {
+
+            &__body {
+               padding-right: 40%;
+            }
+         }
+
+         @include media("<=500px") {
+
+            &__body {
+               padding-right: 20%;
+            }
+         }
+
+         @include media("<=440px") {
+
+            &__img--background {
+               object-position: top 0px right -60px;
+            }
+         }
+
+         @include media("<=400px") {
+
+            &__img--background {
+               object-position: top 0px right -68px;
+            }
+         }
+
+         @include media("<=360px") {
+
+            &__body {
+               padding-right: 12%;
+            }
+         }
+      }
+   }
+
+   /* Homepage top-right block */
+   &--house {
+      margin: 0 .5rem;
+
+      #{$card} {
+
+         &__img {
+            max-width: 150px;
+            align-self: flex-end;  
+            margin-left: 0;
+         }
+
+         &__body {
+            display: flex;
+            flex-direction: column;
+         }
+
+         &__text {
+            margin-top: auto;
+         }
+      }
+
+      @include media("<=1025px") {
+         margin-top: 1rem;
+      }
+
+      @include media("<=500px") {
+
+         #{$card} {
+
+            &__img {
+               max-width: 100px;
+               margin-bottom: .5rem;
+            }
+
+            &__list {
+               margin-left: var(--gap-half);
+
+               li {
+
+                  &:last-child  {
+                     margin-bottom: 0;
+                  }
+               }
+            }
+         }
+      }
+
+      @include media("<=400px") {
+
+         #{$card} {
+
+            &__img {
+               position: absolute;
+               right: var(--gap);
+               max-width: 75px;
+            }
+
+            &__list {
+               margin-left: 0;
+
+               li {
+
+                  &:last-child  {
+                     padding-right: 90px;
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+
+
+
+
+
+
+
+
+
