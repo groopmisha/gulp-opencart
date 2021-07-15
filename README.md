@@ -7,7 +7,7 @@
    <li>Install gulp locally <code>npm install gulp --save-dev </code></li>
    <li>Install packages
       <code>
-         npm i sass gulp-sass browser-sync gulp-file-include gulp-autoprefixer gulp-group-css-media-queries gulp-rename gulp-clean-css gulp-uglify-es gulp-babel gulp-concat gulp-cached gulp-dependents gulp-debug  --save-dev
+         npm i sass gulp-sass browser-sync gulp-file-include gulp-autoprefixer gulp-group-css-media-queries gulp-rename gulp-clean-css gulp-uglify-es gulp-babel gulp-concat gulp-cached gulp-dependents gulp-debug gulp-sass-unicode --save-dev
       </code>
    </li>
    <li>Check <code>gulp --version</code></li>
